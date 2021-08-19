@@ -1,4 +1,4 @@
-
+// verifica si los campos estan completos y si estan completos nos lleva a index 
 
 function verificar() {
     let dato = document.getElementById('user');
@@ -31,10 +31,19 @@ function verificar() {
 
 
 function desconectar(){
-    localStorage.clear();
+    
+    localStorage.clear();    
+    signOut();
     location.href="index.html";
+    
     }
-
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          location.reload();
+        });
+        
+      }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -42,7 +51,8 @@ function desconectar(){
 document.addEventListener("DOMContentLoaded", function (e) {
     
 
-        conectado();    
+       conectado();    
+        
 
   
     

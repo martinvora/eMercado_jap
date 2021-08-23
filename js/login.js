@@ -32,9 +32,10 @@ function verificar() {
 
 function desconectar(){
     
+    
     localStorage.clear();    
     signOut();
-    location.href="index.html";
+    location.reload();
     
     }
     function signOut() {

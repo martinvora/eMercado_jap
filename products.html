@@ -31,12 +31,12 @@
         <button id="btnlogin" class=" btn-sm btn btn-danger py-2 d-none d-md-inline-block invisible" onclick="desconectar();">Desconectar</button>
       </div>
     </nav>
-    <div class="container p-5">
       <main role="main" class="pb-5">
         <div class="text-center p-4">
             <h2>Productos</h2>
+            <p class="lead">Verás aquí todos los productos del sitio.</p>
         </div>
-                <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col text-right">
                     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
@@ -52,10 +52,13 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-end">
+            <div class="row justify-content-start">
               <div class="col-md-6"></div>
                 <div class="col-md-6 col-sm-12 mb-1 container">
                   <div class="row container p-0 m-0">
+                    <div class="row justify-content-start">
+                      <input class="form-control" type="search" placeholder="Buscar productos..." id="buscador">
+                    </div>
                     <div class="col">
                       <p class="font-weight-normal text-right my-2">Precio</p>
                     </div>
@@ -74,14 +77,14 @@
                   </div>
                 </div>
             </div>
-        <div class="container">
+          <div class="container">
             <div class="row">
                 <div class="list-group" id="cat-list-container">
                 </div>
             </div>
         </div>
     </main>
-    </div>
+   
     <footer class="text-muted bg-light">
       <div class="container">
         <p class="float-right">

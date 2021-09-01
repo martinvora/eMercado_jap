@@ -5,6 +5,47 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 var productsArray = [];
+var listado = [];
+var listafiltrada = [];
+
+function verificacion() {
+    var textoEscrito = document.getElementById("buscador").value;
+    var listafiltrada = productsArray.filter(function(name) { //filter devuelve un nuevo array conteniendo los coincidentes
+        return name.name.toLowerCase().indexOf(textoEscrito.toLowerCase()) > -1; //si lo escrito está en el array devuelve su posición
+        //si no lo está devuelve -1
+    })
+    mostrarlista(listafiltrada); // escribo la lista filtrada
+  }
+
+
+  function mostrarlista(lista){
+    
+    let htmlContentToAppend = "";
+    for(let i = 0; i < lista.length; i++){
+        let products = lista[i];
+
+        htmlContentToAppend += `
+        <div class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-3">
+                    <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">`+ products.name + ` U$S `+products.cost+ ` </h4>
+                        <small class="text-muted">` + products.soldCount + ` Vendidos </small>
+                        
+                    </div>
+                    <smaller h4 class="mb-1">` + products.description + `</h4>
+                </div>
+            </div>
+        </div>
+        `
+
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        
+    }
+}
 
 function sortProducts(criteria, array){
     let result = [];
@@ -134,5 +175,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showProductsList();
     });
+    document.getElementById('buscador').addEventListener('keyup',()=>{
 
+        verificacion();
+
+
+
+
+    });
 });

@@ -22,12 +22,20 @@ function showImagesGallery(array){
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
 
-        htmlContentToAppend += `
+        htmlContentToAppend += ` <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+      </div>
         <div class="col-lg-3 col-md-4 col-6">
+        
             <div class="d-block mb-4 h-100 ">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+                <img id="myImg" style="width:100%;max-width:300px" src="` + imageSrc + `" alt="">
+                
+
             </div>
         </div>
+        
         `
 
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
@@ -75,11 +83,38 @@ function showComment(array){
     }
 }
 
+function formatearHora()  {
+    var hoy = new Date();
+    var yyyy = hoy.getFullYear();
+    var mm =  hoy.getMonth() + 1;
+    var dd =  hoy.getDate();
+    var hrs = hoy.getHours();
+    var min = hoy.getMinutes();
+    var sec = hoy.getSeconds();hoy
+    if (mm < 10) {
+        mm = '0' + mm;
+        }
+    
+    if (dd < 10) {
+        dd = '0' + dd;
+        }
 
-function califico(){
+    if (hrs < 10) {
+        hrs = '0' + hrs;
+        }
+    
+    if (min < 10) {
+        min = '0' + min;
+        }    
 
-
+    if (sec < 10) {
+        sec = '0' + sec;
+        }    
+    
+    hoy = yyyy + `-` + mm + `-` + dd + ` ` + hrs + `:` + min + `:` + sec;
+    return hoy;
 }
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -122,17 +157,22 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 document.getElementById("agregar").addEventListener("click", () => {
     //cuando hago click en "Agregar"
-
-    let comentario = []; //Creo una variable de objeto llamada "persona"
-
-     comentario.nombre = JSON.parse(localStorage.getItem("usuario")); //Obtengo el contenido del text "nombre"
-     comentario.opinion = parseInt(document.getElementById("opinion").value);
-      
-     if (comentario.opinion.trim() == "") {
-        alert("Nombre en blanco");
+    
+    let comentario = {}; //Creo una variable de objeto llamada "comentario"
+    
+    // Preguntar en la clase de consulta    sobre la siguiente linea comentada para aclarar dudar 
+    //comentario.user = localStorage.getItem('usuario');                
+     comentario.user = document.getElementById("nombre").textContent
+     comentario.description = document.getElementById("opinion").value; //Obtengo el contenido del text "nombre"
+     comentario.score = document.getElementById("cant").value
+     comentario.dateTime = formatearHora();
+        
+     if (comentario.description.trim() == "") {
+        alert("Comentario vacio");
     } else {
-      commentArray.push(comentario);
+        commentArray.push(comentario);
     }
+    showComment(commentArray);//Mostramos la lista.
+  }); 
 
-});
 

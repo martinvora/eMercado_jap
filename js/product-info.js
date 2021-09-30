@@ -1,4 +1,6 @@
 var commentArray = [];
+var productsArray = [];
+let related = [];
 
 // pone nombre de usuario en la ventana de "dejar comentarios"
 
@@ -9,11 +11,30 @@ function nombreEnComentario() {
     
     
     nombre_.innerHTML= `<i  style="color: black" class="fas fa-user"> ${usuario.nombre}  ` ;
-    
-    
-    
+     
     
     };
+
+ function showCarousel(array){
+     
+    var slides="";
+    var i = 0 ;
+    array.forEach(elemento=> {          
+
+        if (i==0){
+            slides+= "<div class='carousel-item active'>  <img class='img-fluid'  src=" +elemento+" alt='"+elemento+ "' width=700 height=2000> </div>";
+            } else{
+        slides+= "<div class='carousel-item '>  <img class='img-fluid'  src=" +elemento+" alt='"+elemento+ "' width=700 height=2000> </div>";
+        }
+        i++;
+     });
+    document.getElementById('slides').innerHTML=slides; 
+
+
+
+ }   
+
+
 
 function showImagesGallery(array){
 
@@ -115,6 +136,45 @@ function formatearHora()  {
     return hoy;
 }
 
+
+//Muestra los productos relaciónados
+
+function relatedProducts() {
+    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            related = resultObj.data;
+            productRelated = related.relatedProducts; 
+            console.log(productRelated);
+            let htmlContentToAppend = ``;
+            getJSONData(PRODUCTS_URL).then(function (resultObjs) {
+                if (resultObjs.status === "ok") {
+                   
+                    prod = resultObjs.data; 
+                    console.log(prod);
+                   let producto = prod.name
+                    console.log(producto);
+                    for (let indice of productRelated) {
+                        console.log(prod[indice]);
+                        htmlContentToAppend += `
+                        <div class="card w-45 justify-content col-2>
+                        <div class="card col-sm-5 pb-3">
+                        <img class="card-img-top" src="${prod[indice].imgSrc}" alt="Card image cap">                           
+                            <div class="card-body d-flex flex-column text-center pt-6">                             
+                                <h2 class="card-title">${prod[indice].name}</h2>
+                                <p class="card-text text-justify">${prod[indice].description}</p>
+                                <a href="#" class="btn btn-outline-secondary mt-auto">Ver producto</a>
+                            </div>                        
+                        </div>
+                      </div>
+                     
+                            `;
+                        }
+                        document.getElementById("prod-list-container1").innerHTML = htmlContentToAppend;
+                    }                                                  
+                });
+            };
+        });
+    }
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -136,8 +196,12 @@ document.addEventListener("DOMContentLoaded", function(e){
             productCategoryHTML.innerHTML = product.category;
             productSoldCountHTML.innerHTML = product.soldCount;
 
-            //Muestro las imagenes en forma de galería
+            //Muestro las imagenes en forma de galería 
+            //Muestro carousel
+            //Muestro y los productos related
             showImagesGallery(product.images);
+            showCarousel(product.images);
+            relatedProducts();
         }
     });
 });
@@ -150,11 +214,20 @@ document.addEventListener("DOMContentLoaded", function(e){
             //Muestro los comentarios
             showComment(commentArray);
             nombreEnComentario();  
+            
+           
         }
       
     });
 });
 
+//
+
+
+
+
+
+//
 document.getElementById("agregar").addEventListener("click", () => {
     //cuando hago click en "Agregar"
     
@@ -173,6 +246,7 @@ document.getElementById("agregar").addEventListener("click", () => {
         commentArray.push(comentario);
     }
     showComment(commentArray);//Mostramos la lista.
+    
   }); 
 
 

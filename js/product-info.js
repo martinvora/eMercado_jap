@@ -158,7 +158,7 @@ function relatedProducts() {
                         htmlContentToAppend += `
                         <div class="card w-45 justify-content col-2>
                         <div class="card col-sm-5 pb-3">
-                        <img class="card-img-top" src="${prod[indice].imgSrc}" alt="Card image cap">                           
+                        <img class="card-img-top w-100" src="${prod[indice].imgSrc}" alt="Image cap">                           
                             <div class="card-body d-flex flex-column text-center pt-6">                             
                                 <h2 class="card-title">${prod[indice].name}</h2>
                                 <p class="card-text text-justify">${prod[indice].description}</p>
@@ -169,7 +169,7 @@ function relatedProducts() {
                      
                             `;
                         }
-                        document.getElementById("prod-list-container1").innerHTML = htmlContentToAppend;
+                        document.getElementById("relatedProduct").innerHTML = htmlContentToAppend;
                     }                                                  
                 });
             };

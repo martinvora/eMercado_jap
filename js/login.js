@@ -33,9 +33,10 @@ function verificar() {
 function desconectar(){
     
     
-    localStorage.clear();    
+    localStorage.clear();   
+    location.reload(); 
     signOut();
-    location.reload();
+    
     
     }
     function signOut() {

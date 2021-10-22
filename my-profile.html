@@ -64,7 +64,8 @@
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
               <img id="imgPerfil"class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-              <span id="nombrePerfil" class="font-weight-bold">Nombre y Apellido</span>
+              <span id="nombrePerfil" class="text-black-50">Nombre</span>
+              <span id="apellidoPerfil" class="text-black-50">Apellido</span>
               <span id="edadPerfil"   class="text-black-50">Edad</span>
               <span id="emailPerfil"class="text-black-50">Email</span>
               <span id="telefonoPerfil"class="text-black-50">Telefono</span>
@@ -77,8 +78,8 @@
                     <h4 class="text-right">Mi Perfil</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label id="editarNombres" class="labels">Nombres</label><input type="text" class="form-control" placeholder="Nombres" value=""></div>
-                    <div class="col-md-6"><label id="editarApellidos" class="labels">Apellidos</label><input type="text" class="form-control" value="" placeholder="Apellidos"></div>
+                    <div class="col-md-6"><label  class="labels">Nombres</label><input id="editarNombres"  type="text" class="form-control" placeholder="Nombres" ></div>
+                    <div class="col-md-6"><label  class="labels">Apellidos</label><input id="editarApellidos" type="text" class="form-control"  placeholder="Apellidos"></div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Edad</label><input type="text" class="form-control" placeholder="edad" value=""></div>
@@ -87,7 +88,8 @@
                     <div class="col-md-12"><label class="labels">Imagen de perfil</label><input type="file" class="form-control" placeholder="Imagen de perfil" value=""></div>
                 </div>
            
-                <div class="mt-5 text-center"><button class="btn btn-secondary  profile-button" value="enviar datos" type="button">Guardar cambios</button></div>
+                <div class="mt-5 text-center">
+                  <button onclick="editarPerfil();" class="btn btn-secondary  profile-button" value="enviar datos" >Guardar cambios</button></div>
             </div>
         </div>
     </div>

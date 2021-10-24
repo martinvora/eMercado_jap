@@ -228,3 +228,16 @@ a.custom-card:hover {
   }
 }
 
+a { 
+color: black;
+
+}
+a :hover ,a:active , a:link {
+  color: gray;
+  text-decoration: none;
+  
+}
+
+a:visited {
+  text-decoration:none
+}

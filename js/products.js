@@ -26,7 +26,7 @@ function verificacion() {
 
         htmlContentToAppend += `
         
-        <a href="product-info.html" class="card mb-4 shadow-sm custom-car ">
+        <a href="product-info.html" class="card mb-4 shadow-sm custom-car">
             
            <img src="` + products.imgSrc + `" alt="` + products.description + `" class="bd-placeholder-img card-img-top">                 
            <h4 class="m-3">`+ products.name + ` U$S `+products.cost+ ` </h4>
@@ -83,7 +83,7 @@ function showProductsList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))){
 
         htmlContentToAppend += `
-        <a href="product-info.html" class="card mb-4 shadow-sm custom-car ">
+        <a href="product-info.html" class="card mb-4 shadow-sm custom-car productos-style">
             
            <img src="` + products.imgSrc + `" alt="` + products.description + `" class="bd-placeholder-img card-img-top">                 
            <h4 class="m-3">`+ products.name + ` U$S `+products.cost+ ` </h4>

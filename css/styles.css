@@ -228,3 +228,16 @@ a.custom-card:hover {
   }
 }
 
+
+.productos-style {
+
+  color: black;
+
+
+}
+
+.productos-style:active , 
+.productos-style:hover {
+  text-decoration: none;
+  color:gray;
+}

@@ -13,7 +13,7 @@ function previewFile() {
       reader.readAsDataURL(file);
      
     } else {
-      preview.src = "img/avatar.png";
+      preview.src = "https://i.ibb.co/7vmVgnr/avatar.jpg";
     }
   }
 

@@ -1,5 +1,5 @@
 var dataProduct = {};
-const CART_LIST_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
+const CART_LIST_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 
 
 
@@ -21,12 +21,10 @@ function showCart(array) {
       </div>
       <div class="about">
         <h1 class="title">${product.name}</h1>
-        <h3 class="subtitle">Stock:${product.count}</h3>
-        <img src="img/veg.png"  height="30px"/>
       </div>
       <div class="counter">
         <div class="btn1">+</div>
-        <div class="count">2</div>
+        <div class="count">${product.count}</div>
         <div class="btn1">-</div>
       </div>
       <div class="prices">
@@ -49,3 +47,24 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     })
 });
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()

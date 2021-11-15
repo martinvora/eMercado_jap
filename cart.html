@@ -17,7 +17,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" integrity="sha512-YTuMx+CIxXa1l+j5aDPm98KFbVcYFNhlr2Auha3pwjHCF1lLbY9/ITQQlsUzdM1scW45kHC5KNib4mNa1IFvJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -38,6 +38,8 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
   <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
 </head>
 
 <body>
@@ -67,33 +69,123 @@
       <h5 class="Action">Quitar todo</h5>
     </div>
 
-    <div id="cart-list-container" >
-       
-    
-    </div>
+    <div id="cart-list-container"> </div>
 
   <hr> 
   <div class="checkout">
-  <div class="total">
+    
+     <div class="total">
     <div>
       <div class="Subtotal">Sub-Total</div>
       <div class="items">2 Articulos</div>
     </div>
-    <div class="total-amount">$</div>
+    <div class="total-amount">$200</div>
   </div>
-  <button class="button">Comprar</button></div>
-</div>
+  <button class="button">Comprar</button> 
+  <button type="button" class="button" data-toggle="modal" data-target="#exampleModalLong">
+    Forma de pago
+  </button>
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-75">
+            <div class="container">
+              <form class="needs-validation" novalidate>
+        
+                <div class="row">
+                  <div class="col-50">
+                    <h3>Dirección</h3>
+                    <label for="fname"><i class="fa fa-user"></i> Nombre Completo</label>
+                    <input class="form-control" type="text" id="validationCustom01" name="firstname" placeholder="Martin Rodriguez.." required>
+                    <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                    <input class="form-control" type="text" id="email" name="email" placeholder="martin@ejemplo.com" required>
+                    <label for="adr"><i class="fa fa-address-card-o"></i> Direccion</label>
+                    <input  class="form-control" type="text" id="adr" name="address" placeholder="18 de julio 1111" required>
+                    <label for="city"><i class="fa fa-institution"></i> Ciudad</label>
+                    <input class="form-control" type="text" id="city" name="city" placeholder="Montevideo" required> 
+        
+                    <div class="row">
+                      <div class="col-50">
+                        <label for="state">Localidad</label>
+                        <input class="form-control" type="text" id="state" name="state" placeholder="MVD" required>
+                      </div>
+                      <div class="col-50">
+                        <label for="zip">Codigo Postal</label>
+                        <input class="form-control" type="text" id="zip" name="zip" placeholder="10001" required>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="col-50">
+                    <h3>Credito</h3>
+                    <label for="fname">Tarjetas Acpetadas</label>
+                    <div class="icon-container">
+                      <i class="fa fa-cc-visa" style="color:navy;"></i>
+                      <i class="fa fa-cc-amex" style="color:blue;"></i>
+                      <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                      <i class="fa fa-cc-discover" style="color:orange;"></i>
+                    </div>
+                    <label  class="form-label">Nombre en la tarjeta</label>
+                    <input type="text"  class="form-control"    placeholder="Martin Rodriguez" required>
+                    
+
+                    <label for="ccnum">Numero de  tarjeta</label>
+                    <input type="text" class="form-control"  placeholder="1111-2222-3333-4444" required>
+                    <label for="expmonth">Mes de vencimiento</label>
+                    <input type="text" class="form-control" name="expmonth" placeholder="Septiembre" required>
+        
+                    <div class="row">
+                      <div class="col-50">
+                        <label for="expyear">Año de vencimiento</label>
+                        <input type="text" class="form-control" name="expyear" placeholder="2022"required>
+                      </div>
+                      <div class="col-50">
+                        <label for="cvv">CVV</label>
+                        <input class="form-control" type="text" id="cvv" name="cvv" placeholder="352"required>
+                      </div>
+                    </div>
+                  </div>
+        
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" type="submit">Cerrar</button>
+                </div>
+                
+              </form>
+             
+            </div>
+          </div>
+        
+         
+        </div> 
+      </div>
+     
     </div>
-   
+  </div>
+
+
+
+
+
+ 
   <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-</div>
+  </div>  
+    
+    
+
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
@@ -101,6 +193,6 @@
   <script src="js/cart.js"></script>
   <script src="js/conectado.js"></script>
   <script src="js/login.js"></script>
+  
 </body>
-
 </html>
